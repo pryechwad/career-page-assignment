@@ -27,7 +27,7 @@ const Careers = () => {
   const tabContent = [
     // Who we are
     <div key="who-we-are" className="flex flex-col md:flex-row items-center gap-8 py-8">
-      <img src="src\assets\image.png" alt="Who we are illustration" className="w-64 h-auto mx-auto rounded-lg" />
+  <img src="/Team%20work-cuate.png" alt="Who we are illustration" className="w-64 h-auto mx-auto rounded-lg" />
       <div className="max-w-xl mx-auto">
         <p className="text-gray-700 text-lg mb-4">Sapphire Solutions, an ISO 27001:2013 certified Web and Mobile App Development Company, has been delivering cutting-edge IT solutions since 2002. We provide a comprehensive suite of IT services and domain-specific solutions tailored for enterprises, ISVs, digital agencies, and startups.</p>
         <p className="text-gray-700 text-lg">Driven by innovation and excellence, our highly skilled team combines industry best practices, deep technological expertise, and extensive business domain knowledge to accelerate digital transformation. With over 20+ years of experience, our diverse team engages closely with clients, offering high-end technology solutions and pioneering innovations that drive business success.</p>
@@ -35,7 +35,7 @@ const Careers = () => {
     </div>,
     // Why Sapphire
     <div key="why-sapphire" className="flex flex-col md:flex-row items-center gap-8 py-8">
-      <img src="src\assets\career-illustration.png" alt="Why Sapphire illustration" className="w-64 h-auto mx-auto rounded-lg" />
+  <img src="/career-illustration.png" alt="Why Sapphire illustration" className="w-64 h-auto mx-auto rounded-lg" />
       <div className="max-w-xl mx-auto">
         <p className="text-gray-700 text-lg mb-4">We are an award-winning, end-to-end software solutions provider and IT consulting firm with a proven track record of excellence. We have built strong, long-term partnerships with a diverse clientele, serving 2,500+ satisfied customers, from start-ups to large enterprises.</p>
         <p className="text-gray-700 text-lg">Our team comprises highly skilled professionals, including web designers, developers, mobile app specialists, network engineers, and QA testers, all dedicated to delivering cutting-edge solutions. With an average experience of 4+ years, our experts bring deep technical expertise and industry best practices to every project, ensuring innovation, efficiency, and success.</p>
@@ -61,7 +61,7 @@ const Careers = () => {
     </div>,
     // Life at Sapphire
     <div key="life-at-sapphire" className="flex flex-col md:flex-row items-center gap-8 py-8">
-      <img src="src\assets\image.png" alt="Life at Sapphire illustration" className="w-64 h-auto mx-auto rounded-lg" />
+  <img src="/image.png" alt="Life at Sapphire illustration" className="w-64 h-auto mx-auto rounded-lg" />
       <div className="max-w-xl mx-auto">
         <h3 className="font-bold mb-2">Community</h3>
         <p className="text-gray-700 text-lg mb-4">We are deeply committed to creating a positive and lasting impact in the communities we serve. From many years we allocated dedicated budget as part of our CSR initiatives to support education, health, and social welfare programs.</p>
@@ -105,7 +105,7 @@ const Careers = () => {
         </AnimationWrapper>
         <AnimationWrapper animation="fade-left">
           <div className="w-full md:w-1/2 flex justify-center">
-            <img src="src\assets\Team work-cuate.png" alt="Career Illustration" className="w-96 h-auto rounded-lg shadow-lg" />
+            <img src="/Team%20work-cuate.png" alt="Career Illustration" className="w-96 h-auto rounded-lg shadow-lg" />
           </div>
         </AnimationWrapper>
       </section>
