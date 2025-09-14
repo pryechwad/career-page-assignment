@@ -5,6 +5,21 @@ const Careers = () => {
 
   const tabs = ['Who we are', 'Why Sapphire', 'Benefits', 'Life at Sapphire', 'Hiring Process', 'Current Openings'];
 
+  // Image URLs - using both local and fallback online images
+  const images = {
+    hero: '/career-illustration.png',
+    teamWork: '/Team work-cuate.png',
+    whyUs: '/image.png',
+    // Fallback online images
+    heroFallback: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    teamWorkFallback: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+    whyUsFallback: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+  };
+
+  const handleImageError = (e, fallbackSrc) => {
+    e.target.src = fallbackSrc;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -25,7 +40,8 @@ const Careers = () => {
             </div>
             <div className="flex-1 flex justify-center">
               <img 
-                src="/career-illustration.png" 
+                src={images.hero}
+                onError={(e) => handleImageError(e, images.heroFallback)}
                 alt="Career Growth" 
                 className="w-full max-w-md h-auto"
               />
@@ -74,7 +90,8 @@ const Careers = () => {
               </div>
               <div className="flex-1 flex justify-center">
                 <img 
-                  src="/Team work-cuate.png" 
+                  src={images.teamWork}
+                  onError={(e) => handleImageError(e, images.teamWorkFallback)}
                   alt="Team Work" 
                   className="w-full max-w-md h-auto"
                 />
@@ -86,7 +103,8 @@ const Careers = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="flex-1 order-2 lg:order-1 flex justify-center">
                 <img 
-                  src="/image.png" 
+                  src={images.whyUs}
+                  onError={(e) => handleImageError(e, images.whyUsFallback)}
                   alt="Why Choose Us" 
                   className="w-full max-w-md h-auto"
                 />
@@ -226,37 +244,43 @@ const Careers = () => {
                     title: "Senior Software Engineer", 
                     dept: "Engineering", 
                     location: "Remote",
-                    description: "Build scalable web applications using modern technologies and best practices."
+                    description: "Build scalable web applications using modern technologies and best practices.",
+                    salary: "$120,000 - $160,000"
                   },
                   { 
                     title: "Product Manager", 
                     dept: "Product", 
                     location: "New York, NY",
-                    description: "Drive product strategy and work with cross-functional teams to deliver exceptional products."
+                    description: "Drive product strategy and work with cross-functional teams to deliver exceptional products.",
+                    salary: "$100,000 - $140,000"
                   },
                   { 
                     title: "UX/UI Designer", 
                     dept: "Design", 
                     location: "San Francisco, CA",
-                    description: "Create exceptional user experiences and intuitive interfaces for our digital products."
+                    description: "Create exceptional user experiences and intuitive interfaces for our digital products.",
+                    salary: "$80,000 - $120,000"
                   },
                   { 
                     title: "Data Scientist", 
                     dept: "Analytics", 
                     location: "Remote",
-                    description: "Extract insights from complex datasets to drive data-informed business decisions."
+                    description: "Extract insights from complex datasets to drive data-informed business decisions.",
+                    salary: "$110,000 - $150,000"
                   },
                   { 
                     title: "DevOps Engineer", 
                     dept: "Engineering", 
                     location: "Austin, TX",
-                    description: "Manage cloud infrastructure and deployment pipelines for scalable applications."
+                    description: "Manage cloud infrastructure and deployment pipelines for scalable applications.",
+                    salary: "$100,000 - $140,000"
                   },
                   { 
                     title: "Marketing Manager", 
                     dept: "Marketing", 
                     location: "Chicago, IL",
-                    description: "Lead marketing initiatives and drive brand awareness across multiple channels."
+                    description: "Lead marketing initiatives and drive brand awareness across multiple channels.",
+                    salary: "$70,000 - $100,000"
                   }
                 ].map((job, index) => (
                   <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -269,16 +293,40 @@ const Careers = () => {
                         Full-time
                       </span>
                     </div>
-                    <div className="flex items-center text-gray-600 mb-4">
-                      <span className="mr-2">📍</span>
-                      <span>{job.location}</span>
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center text-gray-600">
+                        <span className="mr-2">📍</span>
+                        <span>{job.location}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <span className="mr-2">💰</span>
+                        <span>{job.salary}</span>
+                      </div>
                     </div>
                     <p className="text-gray-600 mb-6 leading-relaxed">{job.description}</p>
-                    <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                    <button 
+                      onClick={() => alert(`Apply for ${job.title}\n\nThis would open the application form for ${job.title} position.`)}
+                      className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                    >
                       Apply Now
                     </button>
                   </div>
                 ))}
+              </div>
+              
+              {/* No positions message */}
+              <div className="mt-12 text-center">
+                <div className="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                  <div className="text-4xl mb-4">💼</div>
+                  <h3 className="text-xl font-bold mb-3">Don't see your role?</h3>
+                  <p className="text-gray-600 mb-4">We're always looking for talented individuals.</p>
+                  <button 
+                    onClick={() => window.open('mailto:careers@sapphiresolutions.net', '_blank')}
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                  >
+                    Send Your Resume
+                  </button>
+                </div>
               </div>
             </div>
           )}
@@ -315,9 +363,9 @@ const Careers = () => {
           <h2 className="text-4xl font-bold text-center mb-12">Our People Our Pride</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "John Smith", role: "Business Development Manager", initial: "JS", color: "from-blue-500 to-blue-600" },
-              { name: "Alex Davis", role: "Team Lead", initial: "AD", color: "from-green-500 to-green-600" },
-              { name: "Mike Wilson", role: "Senior Developer", initial: "MW", color: "from-purple-500 to-purple-600" }
+              { name: "Parthiv Trivedi", role: "Business Development Manager", initial: "PT", color: "from-blue-500 to-blue-600" },
+              { name: "Daxesh Prajapati", role: "Team Lead", initial: "DP", color: "from-green-500 to-green-600" },
+              { name: "Mehul Gajjar", role: "Senior Developer", initial: "MG", color: "from-purple-500 to-purple-600" }
             ].map((person, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow">
                 <div className={`w-24 h-24 bg-gradient-to-r ${person.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
@@ -375,6 +423,10 @@ const Careers = () => {
             <button 
               type="submit" 
               className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Thank you for subscribing! You will receive updates about new job openings.');
+              }}
             >
               Subscribe
             </button>
